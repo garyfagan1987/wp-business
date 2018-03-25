@@ -1,0 +1,4 @@
+.idea/
+assets/.sass-cache/*
+node_modules/*
+vendor/*
