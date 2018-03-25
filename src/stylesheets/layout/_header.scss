@@ -1,0 +1,50 @@
+.c-header {
+    background-color: $color-brand;
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .c-header {
+        top: 0;
+        z-index: 9999;
+    }
+
+    .admin-bar .c-header {
+        top: 32px;
+    }
+}
+
+.c-menu-icons {
+    color: #FFF;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 14px 0 14px 5px;
+}
+
+@media (max-width: $breakpoint-sm) {
+    .c-logo {
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (min-width: $breakpoint-sm) {
+    .c-logo {
+        float: left;
+    }
+}
+
+.c-logo {
+    padding: 15px 0;
+
+    .c-logo__img {
+        width: 200px;
+    }
+}
+
+@media (min-width: $breakpoint-sm){
+    .c-navigation > ul > li > a {
+        font-size: 1em;
+    }
+}

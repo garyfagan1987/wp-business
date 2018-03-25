@@ -1,0 +1,67 @@
+// buttons
+.owl-nav {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 50%;
+    margin: 0;
+    transform: translate(0, -50%);
+    height: 65px;
+}
+
+.owl-carousel.gallery .owl-nav [class*=owl-] {
+    color: #fff;
+    font-size: 2.3em;
+    background: rgba(200,200,200,0.8);
+    cursor: pointer;
+    position: absolute;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+
+    &:hover {
+        background: rgba(150,150,150,0.8);
+    }
+
+    &.owl-prev {
+        left: 0;
+    }
+
+    &.owl-next {
+        right: 0;
+    }
+}
+
+// dots
+.carousel-hero .owl-dots {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 10px;
+}
+
+.figure {
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    .figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(255,255,255,0.8);
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+// lazy load icon
+.gallery.loading .owl-item .figure {
+    background-image: url(../../dist/images/ajax-loader.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery.loading .owl-item .figure {
+    min-height: 400px;
+}

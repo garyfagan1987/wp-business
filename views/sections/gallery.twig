@@ -1,0 +1,35 @@
+{% set background = component.background is defined and component.background is not empty ? 'c-section--' ~ component.background : 'c-section--white' %}
+
+<div class="c-section {{ background }} c-section--gallery">
+    <div class="u-container">
+        {% if component.title is defined and component.title is not empty %}
+            <h1 class="u-h2 u-text-center u-heading">{{ component.title }}</h1>
+        {% endif %}
+        <div class="u-margin-xs-bottom-2">
+            {% if component.images is defined and component.images | length > 1 %}
+                <div class="gallery owl-carousel owl-theme">
+                    {% for image in component.images %}
+                        <div class="item">
+                            <img src="{{ image.url }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if component.images is defined and component.images | length < 2 %}
+                {% for image in component.images %}
+                    <img src="{{ image.url }}">
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% if component.text is defined and component.text is not empty %}
+            <p>{{ component.text }}</p>
+        {% endif %}
+        {% if component.button.link is defined and component.button.link is not empty and component.button.text is defined and component.button.link is not empty and component.button.type is defined and component.button.link is not empty %}
+            <p>
+                <a class="c-btn-{{ component.button.type }}" href="{{ component.button.link }}">
+                    {{ component.button.text }}
+                </a>
+            </p>
+        {% endif %}
+    </div>
+</div>

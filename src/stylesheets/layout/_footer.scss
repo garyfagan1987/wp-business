@@ -1,0 +1,26 @@
+.c-footer {
+    background-color: #4D5359;
+    color: #fff;
+    padding: 0 0 10px 0;
+    a {
+        color: #fff;
+    }
+
+    li a {
+        color: #CCC;
+    }
+
+    &__top {
+        padding: 20px 0;
+    }
+
+    &__bottom {
+        background-color: darken(#4D5359, 5%);
+        font-size: 13px;
+        padding: 20px 0;
+
+        .u-list-inline {
+            line-height: 1.8;
+        }
+    }
+}

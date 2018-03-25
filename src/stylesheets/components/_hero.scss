@@ -1,0 +1,47 @@
+.c-hero {
+    overflow: hidden;
+    position: relative;
+    height: 357px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &__center {
+        color: #FFF;
+        position: absolute;
+        left: 50%;
+        text-align:center;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+        text-shadow: 2px 2px #333;
+    }
+}
+
+// mobile
+@media (max-width: $breakpoint-sm) {
+    .c-hero {
+        height: 240px;
+
+        .h2 {
+            font-size: 24px;
+        }
+
+        .h4 {
+            font-size: 16px;
+        }
+
+        &__center {
+            width: 90%;
+        }
+    }
+}
+
+// desktop
+@media (min-width: $breakpoint-sm) {
+    .c-hero .c-hero__center {
+        width: 50%;
+    }
+}

@@ -1,0 +1,21 @@
+<article class="u-col-sm-6">
+	<div class="card">
+		<a href="{{ post.link }}">
+			{% if post.thumbnail.src %}
+				{% set thumbnail = post.thumbnail.src|resize(800, 300) %}
+			{% else %}
+				{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
+			{% endif %}
+			<img src="{{thumbnail}}">
+		</a>
+		<div class="u-padding-xs-3">
+			<h1 class="u-h4 u-margin-top-xs-0 tease-post__title">
+				<a href="{{ post.link }}">{{ post.post_title }}</a>
+			</h1>
+			<div class="tease-post__except">{{ post.get_preview }}</div>
+			{% if post.get_field('show_publish_date') %}
+				<small>Published on {{post.date}}</small>
+			{% endif %}
+		</div>
+	</div>
+</article>

@@ -1,0 +1,35 @@
+{
+  "name": "wp-business",
+  "version": "0.0.1",
+  "description": "WP Buiness",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://garyfagan1987@bitbucket.org/garyfagan1987/figaro-owners-club.git"
+  },
+  "author": "gary fagan",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/garyfagan1987/figaro-owners-club#readme",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-uglify": "^1.5.3",
+    "normalize-scss": "^7.0.1",
+    "sassie": "^1.0.12"
+  },
+  "dependencies": {
+    "compass-mixins": "^0.12.10",
+    "parker": "0.0.10"
+  }
+}

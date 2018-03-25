@@ -1,0 +1,21 @@
+{
+  "name": "figaro-owners-club",
+  "description": "the figaro owners club",
+  "main": "gulpfile.js",
+  "authors": [
+    "gary fagan"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "owl.carousel": "^2.2.0",
+    "jquery": "^1.11.3"
+  }
+}

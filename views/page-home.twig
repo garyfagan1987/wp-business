@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+    {% if post.get_field('hero') %}
+        {% include 'sections/hero.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+	{% for component in post.get_field('components') %}
+		{% if component.acf_fc_layout == 'strip' %}
+            {% include 'sections/strip.twig' %}
+		{% elseif component.acf_fc_layout == 'message' %}
+            {% include 'sections/message.twig' %}
+		{% elseif component.acf_fc_layout == 'icon_grid' %}
+            {% include 'sections/icon-grid.twig' %}
+    	{% elseif component.acf_fc_layout == 'item' %}
+            {% include 'sections/item.twig' %}
+    	{% elseif component.acf_fc_layout == 'promotion' %}
+            {% include 'sections/promotion.twig' %}
+		{% elseif component.acf_fc_layout == 'gallery' %}
+            {% include 'sections/gallery.twig' %}
+    	{% endif %}
+	{% endfor %}
+{% endblock %}

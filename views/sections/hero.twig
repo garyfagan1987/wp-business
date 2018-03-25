@@ -1,0 +1,29 @@
+{% set carouselClass = post.get_field('hero') | length > 1 ? 'carousel-hero owl-carousel owl-theme' : '' %}
+<div class="{{ carouselClass }}">
+    {% for hero in post.get_field('hero') %}
+        {% set thumbnail = hero.image.sizes.large is defined and hero.image.sizes.large is not empty ? hero.image.sizes.large : site.theme.link ~ '/dist/images/placeholder.jpg' %}
+        {#@todo, add the picture element here#}
+        <div class="c-hero item" style="background-image:url('{{thumbnail}}');">
+            <div class="c-hero__center">
+                {% if hero.title is defined and hero.title is not empty %}
+                    <h1 class="u-h2">
+                        <strong>{{ hero.title }}</strong>
+                    </h1>
+                {% endif %}
+                {% if hero.description is defined and hero.description is not empty %}
+                    <h2 class="u-h4">
+                        <strong>{{ hero.description }}</strong>
+                    </h2>
+                {% endif %}
+                {% if hero.button.link is defined and hero.button.link is not empty and hero.button.text is defined and hero.button.text is not empty %}
+                    <a href="{{ hero.button.link }}" class="c-btn-default">
+                        {{ hero.button.text }}&nbsp;&nbsp;
+                        {% include 'components/icon.twig' with {
+                            'class': 'fa-chevron-right'
+                        } %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

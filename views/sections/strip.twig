@@ -1,0 +1,20 @@
+{% set background = component.background is defined and component.background is not empty ? 'c-section--' ~ component.background : 'c-section--white' %}
+<div class="c-section c-section--slim {{ background }}">
+    <div class="u-container">
+        <h1 class="u-h4 u-margin-xs-0 u-text-center">
+            {% if component.description is defined and component.description is not empty %}
+                {{ component.description }}
+            {% endif %}
+            {% if component.button is defined and component.button is not empty %}
+                {% for btn in component.button %}
+                    {% if btn.text is defined and btn.text is not empty and btn.link is defined and btn.link is not empty and btn.type is defined and btn.type is not empty %}
+                        <a class="c-btn-{{ btn.type }} u-margin-left-xs-2" href="{{ btn.link }}">{{ btn.text }}</a>
+                    {% endif %}
+                    {% if btn.country_code is defined and btn.country_code is not empty and btn.text is defined and btn.text is not empty and btn.number is defined and btn.number is not empty and btn.type is defined and btn.type is not empty %}
+                        <a class="c-btn-{{ btn.type }} u-margin-left-xs-2" href="tel:+{{ btn.country_code }}{{ btn.number }}">{{ btn.text }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </h1>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+	{% if post.thumbnail.src %}
+		{% set thumbnail = post.thumbnail.src %}
+	{% else %}
+		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
+	{% endif %}
+	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
+{% endblock %}
+
+{% block content %}
+	<div class="post-wrapper">
+		<div class="u-container">
+			{{ function('dimox_breadcrumbs') }}
+			<div class="u-row">
+				<div class="u-col-md-8">
+					<article class="card u-padding-xs-4 post-type-{{post.post_type}}" id="post-{{post.ID}}">
+						<section class="post-content">
+							<h1 class="u-h3 post-title u-margin-top-xs-0">{{post.title}}</h1>
+							<div class="post-body">
+								{{post.content}} {# wpautop here breaks simple maps #}
+							</div>
+						</section>
+					</article>
+					<hr>
+					<div class="u-row u-row-margin">
+						{% for event in events %}
+							<article class="u-col-sm-6">
+								<div class="card">
+									<a href="{{ event.output('#_EVENTURL') }}">
+										{% if event.output('#_EVENTIMAGEURL') %}
+											{% set thumbnail = event.output('#_EVENTIMAGEURL') %}
+										{% else %}
+											{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
+										{% endif %}
+										<img src="{{thumbnail}}">
+									</a>
+									<div class="u-padding-xs-3">
+										<h1 class="u-h4 u-margin-top-xs-0 tease-post__title">
+											<a href="{{ event.output('#_EVENTURL') }}">{{ event.output('#_EVENTNAME') }}</a>
+										</h1>
+										<div class="tease-post__except">
+											<p>Venue: {{event.output('#_LOCATIONLINK')}}</p>
+											<p>Location: {{event.output('#_LOCATIONTOWN')}}</p>
+											<p>Date: {{event.output('#_EVENTDATES')}}</p>
+											<p>Time: {{event.output('#_EVENTTIMES')}}</p>
+											<p>
+												<a href="{{ event.output('#_EVENTURL') }}">View event</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</article>
+							{% if loop.index % 2 == 0 %}
+								</div><div class="u-row">
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

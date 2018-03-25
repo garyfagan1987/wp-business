@@ -1,0 +1,47 @@
+<footer class="c-footer">
+	<div class="c-footer__top">
+		<div class="u-container">
+			<div class="u-row">
+				{% for column in options.footer_column %}
+					<div class="u-col-sm-6 u-col-md-3">
+						<h4 class="u-heading u-margin-top-xs-0 u-margin-bottom-xs-4">{{column.link_title}}</h4>
+						{% if column.links %}
+							<ul class="u-reset">
+								{% for link in column.links %}
+									<li class="u-margin-bottom-xs-1">
+										<a href="{{function('get_permalink', link.link)}}">{{function('get_the_title', link.link)}}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="c-footer__bottom">
+		<div class="u-container">
+			<ul class="u-text-center u-reset u-list-inline">
+				{% for item in menuBottom.get_items %}
+					<li class="u-margin-xs-left-1 u-margin-xs-right-1">
+						<a href="{{item.get_link}}">{{item.title}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="u-text-center u-margin-bottom-xs-4">
+			<small>{{options.legal_copy}}</small>
+		</div>
+		{% if options.social_icons %}
+			<div class="u-text-center u-margin-xs-top-4">
+				{% for socialIcon in options.social_icons %}
+					<a class="fa-stack u-margin-xs-left-1 u-margin-xs-right-1" href="{{socialIcon.url}}" target="_blank">
+                        {% include 'components/icon.twig' with {
+                        	'class': socialIcon.icon ~ ' fa-stack-2x'
+                        } %}
+					</a>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</footer>

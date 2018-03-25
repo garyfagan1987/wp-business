@@ -1,0 +1,16 @@
+.c-breadcrumb {
+  list-style: none;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-left: 0;
+
+  & > li {
+    display: inline-block;
+
+    & + li::before {
+      content: "/ ";
+      color: rgb(204, 204, 204);
+      padding: 0 5px;
+    }
+  }
+}

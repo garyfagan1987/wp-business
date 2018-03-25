@@ -1,0 +1,66 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+	{% if post.thumbnail.src %}
+		{% set thumbnail = post.thumbnail.src %}
+	{% else %}
+		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
+	{% endif %}
+	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
+{% endblock %}
+
+{% block content %}
+	<div class="post-wrapper">
+		<div class="u-container">
+			{{ function('dimox_breadcrumbs') }}
+			<div class="u-row">
+				<div class="u-col-md-8">
+					<article class="card post-type-{{post.post_type}}" id="post-{{post.ID}}">
+						<section class="post-content u-padding-xs-4">
+							<h1 class="u-h3 post-title u-margin-top-xs-0">{{post.title}}</h1>
+							<div class="post-body">
+								{{post.content}} {# wpautop here breaks simple maps #}
+							</div>
+							{% if images %}
+								{% if images|length > 1 %}
+									<div class="owl-carousel gallery">
+										{% for image in images %}
+											<figure class="figure">
+												<img class="owl-lazy" data-src="{{ image.url }}" data-src-retina="{{ image.url }}" alt="Image of {{ image.title }}" title="{{ image.title }}" />
+												{% if function('wp_get_attachment', image.id)['caption'] %}
+													<figcaption class="figcaption">{{function('wp_get_attachment', image.id)['caption']}}</figcaption>
+												{% endif %}
+											</figure>
+										{% endfor %}
+									</div>
+								{% else %}
+									<figure class="figure">
+										<img src="{{ images[0].url }}" alt="Image of {{ images[0].title }}" title="{{ images[0].title }}" />
+										{% if function('wp_get_attachment', images[0].id)['caption'] %}
+											<figcaption class="figcaption">{{function('wp_get_attachment', images[0].id)['caption']}}</figcaption>
+										{% endif %}
+									</figure>
+								{% endif %}
+							{% endif %}
+							{% if post.get_field('show_publish_date') %}
+								<small>Published on {{post.date}}</small>
+							{% endif %}
+						</section>
+					</article>
+					{# related articles #}
+					{% if related_articles %}
+						<h3>Related Articles</h3>
+						<div class="u-row">
+							{% for post in related_articles %}
+								{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+								{% if loop.index % 2 == 0 %}
+									</div><div class="u-row">
+								{% endif %}
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% set background = component.background is defined and component.background is not empty ? 'c-section--' ~ component.background : 'c-section--white' %}
+
+{% set class1 = component.image is defined and component.image is not empty ? 'u-col-sm-10' : 'u-col-xs-12' %}
+{% set class2 = component.image is defined and component.image is not empty ? 'u-col-sm-2' : 'u-col-xs-12' %}
+
+<div class="c-section {{ background }}">
+    <div class="u-container">
+        {% if component.title is defined and component.title is not empty %}
+            <h1 class="u-h2 u-heading u-text-center">{{ component.title }}</h1>
+        {% endif %}
+
+        <div class="u-row">
+            <div class="{{ class1 }}">
+                {% if component.description is defined and component.description is not empty %}
+                    <p>{{ component.description }}</p>
+                {% endif %}
+            </div>
+            <div class="{{ class2 }} u-text-center">
+                {% if component.image is defined and component.image is not empty %}
+                    <img class="u-img-responsive" src="{{ component.image }}" />
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+	{% if function('z_taxonomy_image_url') %}
+		{% set thumbnail = function('z_taxonomy_image_url') %}
+	{% else %}
+		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
+	{% endif %}
+	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
+{% endblock %}
+
+{% block content %}
+	<div class="post-wrapper">
+		<div class="u-container">
+
+			{#{{ function('dimox_breadcrumbs') }}#}
+
+			<div class="u-row">
+				<div class="u-col-md-8">
+					<h1 class="u-h3">{{ function('single_cat_title') }}</h1>
+					{{ function('category_description') }}
+					<hr>
+					<div class="u-row">
+						{% for post in posts %}
+							{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+							{% if loop.index % 2 == 0 %}
+								</div><div class="u-row">
+							{% endif %}
+						{% endfor %}
+					</div>
+
+					<!--pagination  -->
+					{% if pagination.pages %}
+						<nav aria-label="Page navigation" class="u-text-center">
+							<ul class="pagination">
+								{% if pagination.prev %}
+									<li>
+										<a href="{{pagination.prev.link}}" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+								{% else %}
+									<li class="disabled">
+										<span aria-hidden="true">&laquo;</span>
+									</li>
+								{% endif %}
+								{% for page in pagination.pages %}
+									{% if page.link %}
+										<li>
+											<a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+										</li>
+									{% else %}
+										<li class="active">
+											<span>{{page.title}}</span>
+										</li>
+									{% endif %}
+								{% endfor %}
+								{% if pagination.next %}
+									<li>
+										<a href="{{pagination.next.link}}" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								{% else %}
+									<li class="disabled">
+										<span aria-hidden="true">&raquo;</span>
+									</li>
+								{% endif %}
+							</ul>
+						</nav>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

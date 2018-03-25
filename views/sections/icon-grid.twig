@@ -1,0 +1,36 @@
+{% set background = component.background is defined and component.background is not empty ? 'c-section--' ~ component.background : 'c-section--white' %}
+<div class="c-section {{ background }}">
+    <div class="u-container">
+        {% if component.title is defined and component.title is not empty %}
+            <h1 class="u-h2 u-text-center u-heading">{{ component.title }}</h1>
+        {% endif %}
+        {% if component.icons is defined and component.icons | length > 0 %}
+            <div class="u-row">
+                {% set columnClass = 'u-col-xs-' ~ 12 / component.icons | length %}
+                {% for icon in component.icons %}
+                    <div class="{{ columnClass }} u-text-center">
+                        {% if icon.icon is defined and icon.icon is not empty %}
+                            {% include 'components/icon.twig' with {
+                                'stackedClass': 'fa-circle fa-stack-2x u-text-brand',
+                                'class': icon.icon ~ ' fa-stack-1x u-text-white'
+                            } %}
+                        {% endif %}
+                        {% if icon.title is defined and icon.title is not empty %}
+                            <h2 class="u-h5">
+                                <strong>{{ icon.title }}</strong>
+                            </h2>
+                        {% endif %}
+                        {% if icon.description is defined and icon.description is not empty %}
+                            {{ icon.description | wpautop }}
+                        {% endif %}
+                        {% if icon.button.link is defined and icon.button.link is not empty and icon.button.text is defined and icon.button.text is not empty and icon.button.type is defined and icon.button.type is not empty %}
+                            <a class="c-btn-{{ icon.button.type }}" href="{{ icon.button.link }}">
+                                {{ icon.button.text }}
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>

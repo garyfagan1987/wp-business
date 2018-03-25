@@ -1,0 +1,47 @@
+.post-wrapper {
+    margin: 50px 0;
+
+}
+.card {
+    background-color: #FFF;
+    box-shadow: 0 1px 3px 1px #DDD;
+    overflow: hidden;
+
+    .card-content-title {
+        margin: 0;
+    }
+}
+
+.card-margin {
+    margin-bottom: 20px;
+}
+
+.post-content {
+    img.alignright {
+        float: right;
+        margin: 0 0 1em 1em;
+    }
+    img.alignleft {
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+    img.aligncenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .alignright {
+        float: right;
+    }
+    .alignleft {
+        float: left;
+    }
+    .aligncenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    hr {
+        clear: both;
+    }
+}

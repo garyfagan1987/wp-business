@@ -1,0 +1,93 @@
+// font
+$font-primary: 'Open Sans', sans-serif;
+
+// colors
+$color-primary: #437C90;
+$color-default: #337AB7;
+$color-success: #5CB85C;
+$color-info: #5BC0DE;
+$color-warning: #F0AD4E;
+$color-danger: #D9534F;
+$color-white: #FFF;
+
+// alert
+$alert-padding: 20px;
+$alert-success-background: $color-success;
+$alert-info-background: $color-info;
+$alert-warning-background: $color-warning;
+$alert-danger-background: $color-danger;
+
+//body
+$body-color: #2D3E50;
+$body-font-family: $font-primary;
+$body-font-size: 14px;
+$body-font-weight: 400;
+
+// text
+$text-primary: $color-primary;
+$text-success: $color-success;
+$text-info: $color-info;
+$text-warning: $color-warning;
+$text-danger: $color-danger;
+$text-white: $color-white;
+
+// breakpoint
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
+
+// grid
+$column-gutter: 15px;
+$column-number: 12;
+
+// spacing
+$spacing-1: 5px;
+$spacing-2: 10px;
+$spacing-3: 15px;
+$spacing-4: 20px;
+
+// heading
+$heading-1: 3em;
+$heading-2: 2em;
+$heading-3: 1.2em;
+$heading-4: 1.2em;
+$heading-5: 1.2em;
+$heading-6: 1.2em;
+
+// background colors
+$background-primary: $color-primary;
+$background-success: $color-success;
+$background-info: $color-info;
+$background-warning: $color-warning;
+$background-danger: $color-danger;
+
+// buttons
+$button-border-radius: 0;
+$button-border-width: 1px;
+$button-font-family: $body-font-family;
+$button-font-size: $body-font-size;
+$button-min-width: 150px;
+
+$button-primary-background: $color-primary;
+$button-primary-color: $text-white;
+$button-primary-border-color: darken($color-primary, 5%);
+
+$button-default-background: transparent;
+$button-default-color: $text-white;
+$button-default-border-color: darken($color-white, 5%);
+
+$button-success-background: $color-success;
+$button-success-color: $text-white;
+$button-success-border-color: darken($color-success, 5%);
+
+$button-info-background: $color-info;
+$button-info-color: $text-white;
+$button-info-border-color: darken($color-info, 5%);
+
+$button-warning-background: $color-warning;
+$button-warning-color: $text-white;
+$button-warning-border-color: darken($color-warning, 5%);
+
+$button-danger-background: $color-danger;
+$button-danger-color: $text-white;
+$button-danger-border-color: darken($color-danger, 5%);

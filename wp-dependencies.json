@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Advanced Custom Fields Pro",
+    "host": "github",
+    "slug": "advanced-custom-fields-pro/acf.php",
+    "uri": "wp-premium/advanced-custom-fields-pro",
+    "branch": "master",
+    "optional": false,
+    "token": null
+  },
+  {
+    "name": "Categories Images",
+    "host": "wordpress",
+    "slug": "categories-images/categories-images.php",
+    "uri": "https://wordpress.org/plugins/categories-images/",
+    "branch": "trunk",
+    "optional": false
+  },
+  {
+    "name": "Timber",
+    "host": "wordpress",
+    "slug": "timber-library/timber.php",
+    "uri": "https://wordpress.org/plugins/timber-library/",
+    "branch": "trunk",
+    "optional": false
+  }
+]

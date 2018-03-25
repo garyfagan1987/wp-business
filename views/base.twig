@@ -1,0 +1,96 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+	<body class="{{body_class}}" data-template="base.twig">
+
+    	{% include 'top-bar.twig' %}
+
+		<header class="c-header">
+			{% include 'search-form.twig' %}
+			<div class="u-container">
+
+				{% if options.site_logo %}
+					<a class="c-logo" href="/">
+						<img class="c-logo__img" src="{{ options.site_logo }}">
+					</a>
+				{% endif %}
+
+				<div class="c-navigation--right">
+					<a id="search" href="#">
+                        {% include 'components/icon.twig' with {
+							'class': 'fa-search c-menu-icons'
+                        } %}
+					</a>
+				</div>
+
+				<a class="u-visible-xs u-visible-sm pull-left c-navigation-open" href="#">
+                    {% include 'components/icon.twig' with {
+                    	'class': 'fa-bars'
+                    } %}
+				</a>
+
+				<nav class="c-navigation">
+
+					<a class="u-visible-xs c-navigation-close" href="#">
+                        {% include 'components/icon.twig' with {
+                        	'class': 'fa-times'
+                        } %}
+					</a>
+
+					<ul>
+						{% for item in menuPrimary.get_items %}
+							<li>
+								{% set hasChild = '' %}
+								{% if item.get_children %}
+									{% set hasChild = 'next' %}
+								{% endif %}
+
+								<a href="{{item.get_link}}" class="{{ hasChild }}" data-id="{{ item.id }}">
+									{% if item.get_children %}
+                                        {% include 'components/icon.twig' with {
+                                        	'class': 'fa-chevron-right u-visible-xs u-visible-sm pull-right'
+                                        } %}
+                                        {% include 'components/icon.twig' with {
+                                        	'class': 'fa-caret-down u-caret u-visible-md u-visible-lg pull-right'
+                                        } %}
+									{% endif %}
+									{{item.title}}
+								</a>
+								{% if item.get_children %}
+									<ul class="c-navigation__sub c-navigation__sub--{{item.id}}">
+										<li class="u-visible-xs u-visible-sm">
+											<a href="#" class="previous">
+                                                {% include 'components/icon.twig' with {
+                                                	'class': 'fa-chevron-left u-visible-xs u-visible-sm pull-left'
+                                                } %}
+												Back
+											</a>
+										</li>
+										{% for child in item.get_children %}
+											<li>
+												<a href="{{child.get_link}}">{{child.title}}</a>
+											</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</nav>
+			</div>
+		</header>
+		{% block hero %}
+		{% endblock %}
+		<main class="main">
+			{% block content %}
+				<p>Sorry, no content</p>
+			{% endblock %}
+		</main>
+		{% include 'footer.twig' %}
+		{{function('wp_footer')}}
+	</body>
+</html>
