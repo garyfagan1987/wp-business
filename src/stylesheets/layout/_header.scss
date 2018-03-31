@@ -1,5 +1,7 @@
 .c-header {
     background-color: $color-brand;
+    min-height: 87px;
+    position: relative;
     width: 100%;
 }
 
@@ -14,33 +16,25 @@
     }
 }
 
-.c-menu-icons {
-    color: #FFF;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 14px 0 14px 5px;
-}
-
-@media (max-width: $breakpoint-sm) {
+@media (max-width: $breakpoint-sm - 1) {
     .c-logo {
-        left: 50%;
         position: absolute;
-        transform: translate(-50%, 0);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
 @media (min-width: $breakpoint-sm) {
     .c-logo {
-        float: left;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
     }
 }
 
-.c-logo {
-    padding: 15px 0;
-
-    .c-logo__img {
-        width: 200px;
-    }
+.c-logo .c-logo__img {
+    width: 200px;
 }
 
 @media (min-width: $breakpoint-sm){

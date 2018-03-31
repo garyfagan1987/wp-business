@@ -13,7 +13,7 @@ html, body {
 }
 
 // mobile
-@media (max-width: $breakpoint-sm) {
+@media (max-width: $breakpoint-sm - 1) {
 
     body.u-navigation-open {
         overflow: hidden;
@@ -23,9 +23,9 @@ html, body {
         background-color: $color-brand;
         position: fixed;
         top: 0;
-        left: -75%;
+        left: -85%;
         height: 100%;
-        width: 75%;
+        width: 85%;
         z-index: 9999;
         overflow-y: scroll;
         transition: 250ms;
@@ -38,8 +38,14 @@ html, body {
         }
 
         li {
-            font-size: 20px;
+            border-bottom: 1px solid darken($color-brand, 5%);
+            font-size: 1.1rem;
             margin: 15px 0;
+            padding-bottom: 15px;
+
+            a {
+                display: block;
+            }
         }
 
         .c-navigation__sub {
@@ -75,9 +81,9 @@ html, body {
     }
 
     a.c-navigation-open {
-        color: #FFF;
-        font-size: 28px;
-        line-height: 3.35em;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
     }
 
     body.u-navigation-open .c-navigation {
@@ -116,12 +122,16 @@ html, body {
 
         > li > a {
             font-size: 1.1em;
+
+            &.next {
+                padding-right: 25px;
+            }
         }
 
         > li > ul {
             background-color: #444;
             display: none;
-            left: 0;
+            right: 0;
             position: absolute;
             text-align: left;
             top: 100%;
@@ -168,5 +178,8 @@ html, body {
 }
 
 .u-caret {
-    line-height: 1.4;
+    position: absolute;
+    right: 10px;
+    transform: translate(0, -50%);
+    top: 50%;
 }

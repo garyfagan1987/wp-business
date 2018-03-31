@@ -9,8 +9,9 @@
 
     	{% include 'top-bar.twig' %}
 
+        {% include 'search-form.twig' %}
+
 		<header class="c-header">
-			{% include 'search-form.twig' %}
 			<div class="u-container">
 
 				{% if options.site_logo %}
@@ -20,16 +21,16 @@
 				{% endif %}
 
 				<div class="c-navigation--right">
-					<a id="search" href="#">
+					<a id="search" class="u-text-white" href="#">
                         {% include 'components/icon.twig' with {
-							'class': 'fa-search c-menu-icons'
+							'class': 'fa fa-lg fa-search'
                         } %}
 					</a>
 				</div>
 
-				<a class="u-visible-xs u-visible-sm pull-left c-navigation-open" href="#">
+				<a class="u-visible-xs c-navigation-open u-text-white" href="#">
                     {% include 'components/icon.twig' with {
-                    	'class': 'fa-bars'
+                    	'class': 'fa-2x fa-bars'
                     } %}
 				</a>
 
@@ -52,20 +53,20 @@
 								<a href="{{item.get_link}}" class="{{ hasChild }}" data-id="{{ item.id }}">
 									{% if item.get_children %}
                                         {% include 'components/icon.twig' with {
-                                        	'class': 'fa-chevron-right u-visible-xs u-visible-sm pull-right'
+                                        	'class': 'fa-chevron-right u-visible-xs pull-right'
                                         } %}
                                         {% include 'components/icon.twig' with {
-                                        	'class': 'fa-caret-down u-caret u-visible-md u-visible-lg pull-right'
+                                        	'class': 'fa-caret-down u-caret u-hidden-xs'
                                         } %}
 									{% endif %}
 									{{item.title}}
 								</a>
 								{% if item.get_children %}
 									<ul class="c-navigation__sub c-navigation__sub--{{item.id}}">
-										<li class="u-visible-xs u-visible-sm">
+										<li class="u-visible-xs">
 											<a href="#" class="previous">
                                                 {% include 'components/icon.twig' with {
-                                                	'class': 'fa-chevron-left u-visible-xs u-visible-sm pull-left'
+                                                	'class': 'fa-chevron-left pull-left'
                                                 } %}
 												Back
 											</a>
