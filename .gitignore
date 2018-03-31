@@ -1,4 +1,5 @@
 .idea/
 assets/.sass-cache/*
+bower_components/*
 node_modules/*
 vendor/*
