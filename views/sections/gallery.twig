@@ -7,7 +7,7 @@
         {% endif %}
         <div class="u-margin-xs-bottom-2">
             {% if component.images is defined and component.images | length > 1 %}
-                <div class="gallery owl-carousel owl-theme">
+                <div class="js-gallery gallery owl-carousel owl-theme">
                     {% for image in component.images %}
                         <div class="item">
                             <img src="{{ image.url }}">

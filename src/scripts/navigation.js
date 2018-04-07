@@ -1,5 +1,7 @@
 var $j = jQuery.noConflict();
 $j( document ).ready(function($) {
+
+    // @todo, add a unit here
     $('.c-navigation a.next').click(function(e){
         e.preventDefault();
         $('.c-navigation > ul').animate({

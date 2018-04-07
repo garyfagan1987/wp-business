@@ -6,10 +6,10 @@
         {% if component.title is defined and component.title is not empty %}
             <h1 class="u-h2 u-text-center u-heading">{{ component.title }}</h1>
         {% endif %}
-        {% if component.posts is defined and component.posts is not empty and component.posts | length > 4 %}
+        {% if component.posts is defined and component.posts is not empty and component.posts | length > 3 %}
             {% include 'sections/item-carousel.twig' %}
         {% endif %}
-        {% if component.posts is defined and component.posts is not empty and component.posts | length < 5 %}
+        {% if component.posts is defined and component.posts is not empty and component.posts | length < 4 %}
             {% include 'sections/item-columns.twig' %}
         {% endif %}
     </div>

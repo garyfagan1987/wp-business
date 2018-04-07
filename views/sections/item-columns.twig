@@ -1,22 +1,24 @@
-<div class="u-row">
-    {% for post in component.posts %}
-        <div class="{{ 'u-col-sm-' ~ 12 / component.posts | length }}">
-            <div class="card">
-                <a href="{{ TimberPost(post.ID).link }}">
-                    {% if TimberPost(post.ID).thumbnail.src %}
-                        {% set thumbnail = TimberPost(post.ID).thumbnail.src | resize(800, 300) %}
-                    {% else %}
-                        {% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
-                    {% endif %}
-                    <img class="u-img-responsive" src="{{thumbnail}}">
-                </a>
-                <div class="u-padding-xs-2">
-                    <h1 class="u-h5 card-content-title">
-                        <a href="{{ TimberPost(post.ID).link }}">{{ TimberPost(post.ID).title }}</a>
-                    </h1>
-                    <p class="card-content-description">{{ TimberPost(post.ID).get_preview(16) }}</p>
+<div class="c-item-columns">
+    <div class="c-item-columns__carousel js-item-columns__carousel">
+        {% for post in component.posts %}
+            <div>
+                <div class="card">
+                    <a href="{{ TimberPost(post.ID).link }}">
+                        {% if TimberPost(post.ID).thumbnail.src %}
+                            {% set thumbnail = TimberPost(post.ID).thumbnail.src | resize(800, 300) %}
+                        {% else %}
+                            {% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
+                        {% endif %}
+                        <img class="u-img-responsive" src="{{thumbnail}}">
+                    </a>
+                    <div class="u-padding-xs-2">
+                        <h1 class="u-h5 card-content-title">
+                            <a href="{{ TimberPost(post.ID).link }}">{{ TimberPost(post.ID).title }}</a>
+                        </h1>
+                        <p class="card-content-description">{{ TimberPost(post.ID).get_preview(16) }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>

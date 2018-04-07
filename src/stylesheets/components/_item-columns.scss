@@ -1,0 +1,14 @@
+@media (min-width: $breakpoint-sm) {
+  .c-item-columns__carousel {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    &  > div {
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 0 15px;
+    }
+  }
+}

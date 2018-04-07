@@ -1,0 +1,8 @@
+@media (min-width: $breakpoint-sm) {
+  .c-strip {
+    &__title,
+    &__buttons {
+      display: inline-block;
+    }
+  }
+}

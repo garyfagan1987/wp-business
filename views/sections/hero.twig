@@ -1,4 +1,4 @@
-{% set carouselClass = post.get_field('hero') | length > 1 ? 'carousel-hero owl-carousel owl-theme' : '' %}
+{% set carouselClass = post.get_field('hero') | length > 1 ? 'js-carousel-hero carousel-hero owl-carousel owl-theme' : '' %}
 <div class="{{ carouselClass }}">
     {% for hero in post.get_field('hero') %}
         {% set thumbnail = hero.image.sizes.large is defined and hero.image.sizes.large is not empty ? hero.image.sizes.large : site.theme.link ~ '/dist/images/placeholder.jpg' %}

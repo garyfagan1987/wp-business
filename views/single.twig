@@ -23,7 +23,7 @@
 							</div>
 							{% if images %}
 								{% if images|length > 1 %}
-									<div class="owl-carousel gallery">
+									<div class="owl-carousel gallery js-gallery">
 										{% for image in images %}
 											<figure class="figure">
 												<img class="owl-lazy" data-src="{{ image.url }}" data-src-retina="{{ image.url }}" alt="Image of {{ image.title }}" title="{{ image.title }}" />
