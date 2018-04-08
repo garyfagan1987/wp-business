@@ -28,7 +28,7 @@
     "gulp-uglify": "^1.5.3",
     "normalize-scss": "^7.0.1",
     "parker": "0.0.10",
-    "sassie": "^1.0.13"
+    "sassie": "^1.0.15"
   },
   "dependencies": {
     "owl.carousel": "^2.3.3"
