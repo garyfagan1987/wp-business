@@ -9,6 +9,9 @@ WP_Dependency_Installer::instance()->run( __DIR__ );
 function add_theme_scripts() {
     wp_enqueue_style( 'global', get_template_directory_uri() . '/dist/stylesheets/main.css' );
     wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js', array ( 'jquery' ), 1.1, true);
+    // @todo, add npm package here
+    wp_enqueue_script( 'hammerjs', 'https://bowercdn.net/c/jquery-hammerjs-1.0.11/jquery.hammer-full.min.js', array ( 'jquery' ), 1.1, true);
+    wp_enqueue_script( 'hammerjs-jquery', 'https://bowercdn.net/c/jquery-hammerjs-1.0.11/jquery.hammer.min.js', array ( 'jquery' ), 1.1, true);
     wp_enqueue_script( 'carousel', get_template_directory_uri() . '/src/scripts/carousel.js', array ( 'jquery' ), 1.1, true);
     wp_enqueue_script( 'navigation', get_template_directory_uri() . '/src/scripts/navigation.js', array ( 'jquery' ), 1.1, true);
     wp_enqueue_script( 'search', get_template_directory_uri() . '/src/scripts/search.js', array ( 'jquery' ), 1.1, true);
