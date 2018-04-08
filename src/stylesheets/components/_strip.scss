@@ -6,3 +6,13 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-sm - 1) {
+  .c-strip__buttons [class^="c-btn-"] {
+    margin-top: 10px;
+  }
+
+  .c-strip__buttons [class^="c-btn-"]:not(:first-child) {
+    margin-left: 10px;
+  }
+}
