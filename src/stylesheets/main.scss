@@ -17,3 +17,9 @@
 @import 'components/**/*.scss';
 @import 'layout/**/*.scss';
 @import 'pages/**/*.scss';
+
+//@todo, remove once olw carousel fix there release
+// https://github.com/OwlCarousel2/OwlCarousel2/issues/2253
+.owl-item {
+  touch-action: pan-y !important;
+}
