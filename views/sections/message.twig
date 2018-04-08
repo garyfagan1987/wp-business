@@ -12,7 +12,7 @@
         <div class="u-row">
             <div class="{{ class1 }}">
                 {% if component.description is defined and component.description is not empty %}
-                    <p>{{ component.description }}</p>
+                    {{ component.description }}
                 {% endif %}
             </div>
             <div class="{{ class2 }} u-text-center">
