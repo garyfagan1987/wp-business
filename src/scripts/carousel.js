@@ -1,81 +1,86 @@
-var $j = jQuery.noConflict();
+(function() {
+  "use strict";
 
-function mobileCarousel(width, $element, options) {
-  var $iconGridCarousel = $element,
-    carouselOptions = options;
+  var $j = jQuery.noConflict();
 
-  if ($j(window).width() < width) {
-    $iconGridCarousel.addClass('owl-carousel owl-theme');
-    $iconGridCarousel.owlCarousel(carouselOptions);
-  } else {
-    $iconGridCarousel.removeClass('owl-carousel owl-theme');
-    $iconGridCarousel.addClass('off');
+  function mobileCarousel(width, $element, options) {
+    var $iconGridCarousel = $element,
+      carouselOptions = options;
+
+    if ($j(window).width() < width) {
+      $iconGridCarousel.addClass('owl-carousel owl-theme');
+      $iconGridCarousel.owlCarousel(carouselOptions);
+    } else {
+      $iconGridCarousel.removeClass('owl-carousel owl-theme');
+      $iconGridCarousel.addClass('off');
+    }
+
+    $j(window).resize(function () {
+      if ($j(window).width() < width) {
+        if ($iconGridCarousel.hasClass('off')) {
+          $iconGridCarousel.addClass('owl-carousel owl-theme').removeClass('off');
+          $iconGridCarousel.owlCarousel(carouselOptions);
+        }
+      } else {
+        if (!$iconGridCarousel.hasClass('off')) {
+          $iconGridCarousel.removeClass('owl-carousel owl-theme');
+          $iconGridCarousel.addClass('off').trigger('destroy.owl.carousel');
+          $iconGridCarousel.find('.owl-stage-outer').children(':eq(0)').unwrap();
+        }
+      }
+    });
   }
 
-  $j(window).resize(function () {
-    if ($j(window).width() < width) {
-      if ($iconGridCarousel.hasClass('off')) {
-        $iconGridCarousel.addClass('owl-carousel owl-theme').removeClass('off');
-        $iconGridCarousel.owlCarousel(carouselOptions);
-      }
-    } else {
-      if (!$iconGridCarousel.hasClass('off')) {
-        $iconGridCarousel.removeClass('owl-carousel owl-theme');
-        $iconGridCarousel.addClass('off').trigger('destroy.owl.carousel');
-        $iconGridCarousel.find('.owl-stage-outer').children(':eq(0)').unwrap();
-      }
-    }
-  });
-}
+  $j(document).ready(function ($) {
 
-$j(document).ready(function ($) {
+    // add the loading icons for lazy load
+    var $gallery = $('.js-gallery'),
+      $carouselHero = $('.js-carousel-hero'),
+      $itemCarousel = $('.js-item-carousel'),
+      itemOptions = {
+        margin: 20,
+        loop: true,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        responsive: {0: {items: 1}, 600: {items: 2}, 768: {items: 3}}
+      };
 
-  // add the loading icons for lazy load
-  var $gallery = $('.js-gallery'),
-    $carouselHero = $('.js-carousel-hero'),
-    $itemCarousel = $('.js-item-carousel'),
-    itemOptions = {
+    // mobile icon grid carousel
+    mobileCarousel(600, $j('.js-icon-grid__carousel'), {
       margin: 20,
+      slideSpeed: 300,
+      paginationSpeed: 400,
+      responsive: {0: {items: 1}, 480: {items: 2}}
+    });
+
+    // mobile item columns carousel
+    mobileCarousel(768, $j('.js-item-columns__carousel'), itemOptions);
+
+    $gallery.on('load.owl.lazy', function () {
+      $gallery.addClass('loading');
+    });
+
+    $gallery.on('loaded.owl.lazy', function () {
+      $gallery.removeClass('loading');
+    });
+
+    // home page carousel
+    $carouselHero.owlCarousel({
       loop: true,
       slideSpeed: 300,
       paginationSpeed: 400,
-      responsive: {0: {items: 1}, 600: {items: 2}, 768: {items: 3}}
-    };
+      responsive: {0: {items: 1}}
+    });
 
-  // mobile icon grid carousel
-  mobileCarousel(600, $j('.js-icon-grid__carousel'), {
-    margin: 20,
-    slideSpeed: 300,
-    paginationSpeed: 400,
-    responsive: {0: {items: 1}, 480: {items: 2}}
+    $carouselHero.on('changed.owl.carousel', function () {
+      $carouselHero.trigger('play.owl.video');
+    });
+
+    // home page carousel
+    $itemCarousel.owlCarousel(itemOptions);
   });
 
-  // mobile item columns carousel
-  mobileCarousel(768, $j('.js-item-columns__carousel'), itemOptions);
-
-  $gallery.on('load.owl.lazy', function () {
-    $gallery.addClass('loading');
-  });
-
-  $gallery.on('loaded.owl.lazy', function () {
-    $gallery.removeClass('loading');
-  });
-
-  // home page carousel
-  $carouselHero.owlCarousel({
-    loop: true,
-    slideSpeed: 300,
-    paginationSpeed: 400,
-    responsive: {0: {items: 1}}
-  });
-
-  $carouselHero.on('changed.owl.carousel', function () {
-    $carouselHero.trigger('play.owl.video');
-  });
-
-  // home page carousel
-  $itemCarousel.owlCarousel(itemOptions);
-});
+}());
 
 // needs to be window.load for autoHeight to work
 (function ($) {  //This functions first parameter is named $
