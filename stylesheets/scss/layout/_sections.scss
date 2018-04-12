@@ -1,0 +1,35 @@
+.c-section {
+  padding: 40px 0;
+}
+
+.c-section--slim {
+  padding: 20px 0;
+}
+
+.c-section .u-heading {
+  margin-top: 0;
+}
+
+.c-section--grey-light {
+  background-color: #EEE;
+}
+
+.c-section--grey-dark {
+  background-color: $color-dark;
+
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .u-heading {
+    color: #FFF;
+  }
+}
+
+.c-section--grey-darker {
+  background-color: darken($color-dark, 5%);
+
+  li, a {
+    color: #CCC;
+  }
+}
+
+.c-section--grey-white {
+  background-color: #FFF;
+}

@@ -1,0 +1,23 @@
+.c-footer {
+    background-color: $color-dark;
+    color: #fff;
+    padding: 0 0 10px 0;
+}
+
+.c-footer a {
+    color: $footer-link-color;
+}
+
+.c-footer__top {
+    padding: 20px 0;
+}
+
+.c-footer__bottom {
+    background-color: darken($color-dark, 5%);
+    font-size: 13px;
+    padding: 20px 0;
+}
+
+.c-footer__bottom .u-list-inline {
+    line-height: 1.8;
+}
