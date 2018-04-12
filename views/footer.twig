@@ -21,9 +21,9 @@
 	</div>
 	<div class="c-footer__bottom">
 		<div class="u-container">
-			<ul class="u-text-center u-reset u-list-inline">
+			<ul class="u-text-center u-reset">
 				{% for item in menuBottom.get_items %}
-					<li class="u-margin-xs-left-1 u-margin-xs-right-1">
+					<li class="u-margin-xs-left-1 u-margin-xs-right-1 u-display-xs-inline-block">
 						<a href="{{item.get_link}}">{{item.title}}</a>
 					</li>
 				{% endfor %}
