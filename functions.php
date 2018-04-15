@@ -7,11 +7,9 @@ WP_Dependency_Installer::instance()->run( __DIR__ );
 
 // theme scripts
 function add_theme_scripts() {
-    wp_enqueue_style( 'global', get_template_directory_uri() . '/stylesheets/css/main.css' );
+    wp_enqueue_style( 'main', get_template_directory_uri() . '/dist/css/main.css' );
     wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js', array ( 'jquery' ), 1.1, true);
-    wp_enqueue_script( 'carousel', get_template_directory_uri() . '/dist/scripts/carousel.js', array ( 'jquery' ), 1.1, true);
-    wp_enqueue_script( 'navigation', get_template_directory_uri() . '/dist/scripts/navigation.js', array ( 'jquery' ), 1.1, true);
-    wp_enqueue_script( 'search', get_template_directory_uri() . '/dist/scripts/search.js', array ( 'jquery' ), 1.1, true);
+    wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array ( 'jquery' ), 1.1, true);
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 

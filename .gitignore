@@ -1,6 +1,5 @@
 .idea/
-assets/.sass-cache/*
-bower_components/*
 node_modules/*
 vendor/*
-stylesheets/css/*
+dist/css/
+dist/js/

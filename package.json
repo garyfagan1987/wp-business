@@ -21,10 +21,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^2.3.1",
     "gulp-sass-glob": "^1.0.6",
+    "gulp-uglify": "^3.0.0",
     "parker": "0.0.10",
+    "pump": "^3.0.0",
     "sassie": "^1.0.15"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "owl.carousel": "^2.3.3"
   }
 }

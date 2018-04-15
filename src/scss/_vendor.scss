@@ -1,0 +1,33 @@
+@import "//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i";
+
+// font awesome
+@import "../../node_modules/font-awesome/scss/variables";
+@import 'font-awesome-variables';
+@import "../../node_modules/font-awesome/scss/mixins";
+@import "../../node_modules/font-awesome/scss/path";
+@import "../../node_modules/font-awesome/scss/core";
+@import "../../node_modules/font-awesome/scss/larger";
+@import "../../node_modules/font-awesome/scss/fixed-width";
+@import "../../node_modules/font-awesome/scss/list";
+@import "../../node_modules/font-awesome/scss/bordered-pulled";
+@import "../../node_modules/font-awesome/scss/animated";
+@import "../../node_modules/font-awesome/scss/rotated-flipped";
+@import "../../node_modules/font-awesome/scss/stacked";
+@import "../../node_modules/font-awesome/scss/icons";
+@import "../../node_modules/font-awesome/scss/screen-reader";
+
+// normalize
+@import "../../node_modules/normalize-scss/fork-versions/default/_normalize";
+
+// owl carousel
+@import "../../node_modules/owl.carousel/src/scss/owl.carousel";
+@import "../../node_modules/owl.carousel/src/scss/owl.theme.default";
+
+// sassie
+@import 'sassie-variables';
+@import "../../node_modules/sassie/src/functions";
+@import "../../node_modules/sassie/src/mixins";
+@import "../../node_modules/sassie/src/config";
+@import "../../node_modules/sassie/src/utilities";
+@import "../../node_modules/sassie/src/layout";
+@import "../../node_modules/sassie/src/components";
