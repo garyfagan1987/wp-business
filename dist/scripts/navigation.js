@@ -19,18 +19,6 @@
       }
     });
 
-    $body.hammer().bind("swipeleft", function (e) {
-      if ($(e.target).parents('body').hasClass(navigationOpenSelector)) {
-        $body.removeClass(navigationOpenSelector);
-      }
-    });
-
-    $body.hammer().bind("swiperight", function (e) {
-      if (!$(e.target).parents('body').hasClass(navigationOpenSelector) && $(e.target).parents('.owl-carousel').length < 1) {
-        $body.addClass(navigationOpenSelector);
-      }
-    });
-
     $navigation.find('.next').click(function (e) {
       e.preventDefault();
       $navigation.find('ul').first().animate({
