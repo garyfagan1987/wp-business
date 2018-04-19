@@ -2,7 +2,7 @@
 <div class="c-section {{ background }}">
     <div class="c-icon-grid u-container">
         {% if component.title is defined and component.title is not empty %}
-            <h1 class="u-h2 u-text-center u-heading">{{ component.title }}</h1>
+            <h1 class="u-h2-xs u-text-center u-heading">{{ component.title }}</h1>
         {% endif %}
         {% if component.icons is defined and component.icons | length > 0 %}
             <div class="c-icon-grid__carousel js-icon-grid__carousel">
@@ -15,7 +15,7 @@
                             } %}
                         {% endif %}
                         {% if icon.title is defined and icon.title is not empty %}
-                            <h2 class="u-h5">
+                            <h2 class="u-h5-xs">
                                 <strong>{{ icon.title }}</strong>
                             </h2>
                         {% endif %}
