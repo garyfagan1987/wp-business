@@ -17,6 +17,14 @@
     "optional": false
   },
   {
+    "name": "Formidable Forms",
+    "host": "wordpress",
+    "slug": "formidable/formidable.php",
+    "uri": "https://wordpress.org/plugins/formidable/",
+    "branch": "trunk",
+    "optional": false
+  },
+  {
     "name": "Timber",
     "host": "wordpress",
     "slug": "timber-library/timber.php",
