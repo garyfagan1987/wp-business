@@ -24,7 +24,6 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-$context['sidebar'] = Timber::get_sidebar('sidebar.php');
 $context['images'] = get_field("gallery");
 
 if ( post_password_required( $post->ID ) ) {

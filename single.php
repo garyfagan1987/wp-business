@@ -12,6 +12,7 @@
 $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
+$context['widget_sidebar'] = Timber::get_widgets('sidebar');
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 $context['wp_title'] .= ' - ' . $post->title();
 $context['comment_form'] = TimberHelper::get_comment_form();
@@ -33,7 +34,7 @@ if ($tags) {
 		'ignore_sticky_posts'=>1
 	);
 
-	$context['related_articles'] = Timber::get_posts($args);
+	$context['related_content'] = Timber::get_posts($args);
 }
 
 if ( post_password_required( $post->ID ) ) {
