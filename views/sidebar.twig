@@ -1,5 +1,7 @@
-<div class="u-col-xs-12 u-col-md-4 u-margin-top-xs-4 u-margin-top-md-0">
-    <div class="sidebar">
-        {{ widget_sidebar }}
+{% if widget_sidebar %}
+    <div class="u-col-xs-12 u-col-md-4 u-margin-top-xs-4 u-margin-top-md-0">
+        <div class="sidebar">
+            {{ widget_sidebar }}
+        </div>
     </div>
-</div>
+{% endif %}
