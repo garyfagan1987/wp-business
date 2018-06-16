@@ -1,12 +1,7 @@
 {% extends "base.twig" %}
 
 {% block hero %}
-	{% if post.thumbnail.src %}
-		{% set thumbnail = post.thumbnail.src %}
-	{% else %}
-		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
-	{% endif %}
-	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
+    {% include 'components/hero.twig' %}
 {% endblock %}
 
 {% block content %}
@@ -47,11 +42,10 @@
 							{% endif %}
 						</section>
 					</article>
-					{# related articles #}
-					{% if related_articles %}
-						<h3>Related Articles</h3>
+					{% if related_content %}
+						<h3>Related Content</h3>
 						<div class="u-row">
-							{% for post in related_articles %}
+							{% for post in related_content %}
 								{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
 								{% if loop.index % 2 == 0 %}
 									</div><div class="u-row">
@@ -60,7 +54,7 @@
 						</div>
 					{% endif %}
 				</div>
-                {% include 'components/contact-form.twig' %}
+                {% include 'sidebar.twig' %}
 			</div>
 		</div>
 	</div>
