@@ -1,12 +1,7 @@
 {% extends "base.twig" %}
 
 {% block hero %}
-	{% if post.thumbnail.src %}
-		{% set thumbnail = post.thumbnail.src %}
-	{% else %}
-		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
-	{% endif %}
-	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
+    {% include 'components/hero.twig' %}
 {% endblock %}
 
 {% block content %}
@@ -58,7 +53,7 @@
 						{% endfor %}
 					</div>
 				</div>
-                {% include 'components/contact-form.twig' %}
+                {% include 'sidebar.twig' %}
 			</div>
 		</div>
 	</div>
