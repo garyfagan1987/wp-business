@@ -41,4 +41,16 @@ gulp.task('sass:watch', function () {
     gulp.watch('./src/scss/**/*.scss', ['concat:css']);
 });
 
-gulp.task('default', ['concat:css', 'uglify:js']);
+gulp.task('copy', ['copy:fonts', 'copy:images']);
+
+gulp.task('copy:fonts', function() {
+  gulp.src('./src/fonts/**/*')
+    .pipe(gulp.dest('./dist/fonts/'));
+});
+
+gulp.task('copy:images', function() {
+  gulp.src('./src/images/**/*')
+    .pipe(gulp.dest('./dist/images/'));
+});
+
+gulp.task('default', ['concat:css', 'uglify:js', 'copy']);
