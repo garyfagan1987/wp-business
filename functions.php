@@ -227,3 +227,16 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'theme-general-settings',
 	));
 }
+
+// Register our widget areas
+function widgets() {
+    register_sidebar( array(
+        'name'          => 'Sidebar',
+        'id'            => 'sidebar',
+        'before_widget' => '<div>',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="u-h4-xs u-margin-top-xs-0">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'widgets' );
