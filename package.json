@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://garyfagan1987@bitbucket.org/garyfagan1987/figaro-owners-club.git"
+    "url": "https://github.com/garyfagan1987/wp-business.git"
   },
   "author": "gary fagan",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/garyfagan1987/figaro-owners-club#readme",
+  "homepage": "https://github.com/garyfagan1987/wp-business",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
