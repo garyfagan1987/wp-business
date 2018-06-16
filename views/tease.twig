@@ -1,11 +1,7 @@
 <article class="u-col-sm-6">
 	<div class="card">
 		<a href="{{ post.link }}">
-			{% if post.thumbnail.src %}
-				{% set thumbnail = post.thumbnail.src|resize(800, 300) %}
-			{% else %}
-				{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
-			{% endif %}
+            {% set thumbnail = post.thumbnail.src ? post.thumbnail.src|resize(800, 300) : site.theme.link ~ '/dist/images/placeholder.jpg' %}
 			<img src="{{thumbnail}}">
 		</a>
 		<div class="u-padding-xs-3">
