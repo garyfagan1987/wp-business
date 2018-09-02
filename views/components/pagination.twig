@@ -1,0 +1,37 @@
+<nav aria-label="Page navigation" class="u-text-center">
+  <ul class="c-pagination">
+    {% if pagination.prev %}
+      <li class="c-pagination__item">
+        <a href="{{pagination.prev.link}}" aria-label="Previous">
+          <span class="c-pagination__link" aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {% else %}
+      <li class="c-pagination__item disabled">
+        <span class="c-pagination__link" aria-hidden="true">&laquo;</span>
+      </li>
+    {% endif %}
+    {% for page in pagination.pages %}
+      {% if page.link %}
+        <li class="c-pagination__item">
+          <a href="{{page.link}}" class="c-pagination__link {{page.class}}">{{page.title}}</a>
+        </li>
+      {% else %}
+        <li class="c-pagination__item active">
+          <span class="c-pagination__link">{{page.title}}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if pagination.next %}
+      <li class="c-pagination__item">
+        <a class="c-pagination__link" href="{{pagination.next.link}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {% else %}
+      <li class="c-pagination__item disabled">
+        <span class="c-pagination__link" aria-hidden="true">&raquo;</span>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

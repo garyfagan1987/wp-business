@@ -1,5 +1,5 @@
-<article class="u-col-sm-6">
-	<div class="card">
+<article class="u-col-sm-6 u-margin-bottom-xs-4">
+	<div class="card card--full-height">
 		<a href="{{ post.link }}">
             {% set thumbnail = post.thumbnail.src ? post.thumbnail.src|resize(800, 300) : site.theme.link ~ '/dist/images/placeholder.jpg' %}
 			<img src="{{thumbnail}}">

@@ -1,14 +1,5 @@
 {% extends "base.twig" %}
 
-{% block hero %}
-	{% if function('z_taxonomy_image_url') %}
-		{% set thumbnail = function('z_taxonomy_image_url') %}
-	{% else %}
-		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
-	{% endif %}
-	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
-{% endblock %}
-
 {% block content %}
 	<div class="post-wrapper">
 		<div class="u-container">

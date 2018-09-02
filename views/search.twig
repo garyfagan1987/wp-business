@@ -1,14 +1,5 @@
 {% extends "base.twig" %}
 
-{% block hero %}
-	{% if function('z_taxonomy_image_url') %}
-		{% set thumbnail = function('z_taxonomy_image_url') %}
-	{% else %}
-		{% set thumbnail = site.theme.link ~ '/dist/images/placeholder.jpg' %}
-	{% endif %}
-	<div class="c-hero" style="background-image:url('{{thumbnail}}');"></div>
-{% endblock %}
-
 {% block content %}
 	<div class="post-wrapper">
 		<div class="u-container">
@@ -17,10 +8,11 @@
 
 			<div class="u-row">
 				<div class="u-col-md-8">
-					<h1 class="u-h3-xs">{{ function('single_cat_title') }}</h1>
-					{{ function('category_description') }}
+					<h1 class="u-h3-xs">{{ title }}</h1>
 					<hr>
-					<div class="u-row">
+
+          {% if posts %}
+          <div class="u-row">
 						{% for post in posts %}
 							{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
 							{% if loop.index % 2 == 0 %}
@@ -28,10 +20,12 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-
+          {% else %}
+            <p>There are no results found.</p>
+          {% endif %}
 					<!--pagination  -->
 					{% if pagination.pages %}
-						{% include 'components/pagination.twig' %}
+						{% include 'components/pagination.twig' %}						
 					{% endif %}
 				</div>
         {% include 'sidebar.twig' %}

@@ -1,7 +1,9 @@
 {% extends "base.twig" %}
 
 {% block hero %}
-    {% include 'components/hero.twig' %}
+  {% if post.get_field('show_featured_image') %}
+      {% include 'components/hero.twig' %}
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -54,7 +56,7 @@
 						</div>
 					{% endif %}
 				</div>
-                {% include 'sidebar.twig' %}
+        {% include 'sidebar.twig' %}
 			</div>
 		</div>
 	</div>
