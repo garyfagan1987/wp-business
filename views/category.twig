@@ -3,9 +3,6 @@
 {% block content %}
 	<div class="post-wrapper">
 		<div class="u-container">
-
-			{#{{ function('dimox_breadcrumbs') }}#}
-
 			<div class="u-row">
 				<div class="u-col-md-8">
 					<h1 class="u-h3-xs">{{ function('single_cat_title') }}</h1>
@@ -19,8 +16,6 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-
-					<!--pagination  -->
 					{% if pagination.pages %}
 						{% include 'components/pagination.twig' %}
 					{% endif %}

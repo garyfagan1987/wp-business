@@ -14,6 +14,7 @@ $context = Timber::get_context();
 
 $context['title'] = 'Search results for '. get_search_query();
 $context['posts'] = Timber::get_posts();
+$context['widget_sidebar'] = Timber::get_widgets('sidebar');
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 $context['pagination'] = Timber::get_pagination();
 
