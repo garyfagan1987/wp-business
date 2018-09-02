@@ -27,6 +27,7 @@
     "sassie": "^1.0.15"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.4.1",
     "font-awesome": "^4.7.0",
     "normalize-scss": "^7.0.1",
     "owl.carousel": "^2.3.3"

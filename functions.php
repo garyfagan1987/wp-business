@@ -8,6 +8,8 @@ WP_Dependency_Installer::instance()->run( __DIR__ );
 // theme scripts
 function add_theme_scripts() {
     wp_enqueue_style( 'main', get_template_directory_uri() . '/dist/css/main.css' );
+    wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css' );
+    wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js', array ( 'jquery' ), 1.1, true);
     wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js', array ( 'jquery' ), 1.1, true);
     wp_enqueue_script( 'main', get_template_directory_uri() . '/dist/js/main.js', array ( 'jquery' ), 1.1, true);
 }

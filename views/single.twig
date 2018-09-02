@@ -16,28 +16,25 @@
 						<section class="post-content u-padding-xs-4">
 							<h1 class="u-h3-xs post-title u-margin-top-xs-0">{{post.title}}</h1>
 							<div class="post-body">
-								{{post.content}} {# wpautop here breaks simple maps #}
+								{{post.content}}
 							</div>
 							{% if images %}
-								{% if images|length > 1 %}
-									<div class="owl-carousel gallery js-gallery">
-										{% for image in images %}
-											<figure class="figure">
-												<img class="owl-lazy" data-src="{{ image.url }}" data-src-retina="{{ image.url }}" alt="Image of {{ image.title }}" title="{{ image.title }}" />
-												{% if function('wp_get_attachment', image.id)['caption'] %}
-													<figcaption class="figcaption">{{function('wp_get_attachment', image.id)['caption']}}</figcaption>
-												{% endif %}
-											</figure>
-										{% endfor %}
-									</div>
-								{% else %}
-									<figure class="figure">
-										<img src="{{ images[0].url }}" alt="Image of {{ images[0].title }}" title="{{ images[0].title }}" />
-										{% if function('wp_get_attachment', images[0].id)['caption'] %}
-											<figcaption class="figcaption">{{function('wp_get_attachment', images[0].id)['caption']}}</figcaption>
-										{% endif %}
-									</figure>
-								{% endif %}
+                <div class="u-row">
+									{% for image in images %}
+                    <div class="u-col-xs-6 u-col-sm-3 u-margin-bottom-xs-4">
+  										<figure class="figure">
+                        {% if function('wp_get_attachment', image.id)['caption'] %}
+                          {% set caption = function('wp_get_attachment', image.id)['caption'] %}
+  											{% else %}
+                          {% set caption = '' %}
+                        {% endif %}
+                        <a data-caption="{{ caption }}" data-fancybox="gallery" href="{{ image.url }}">
+                          <img alt="{{ image.title }}" src="{{ image.sizes.thumbnail }}" title="{{ image.title }}">
+                        </a>
+  										</figure>
+                    </div>
+									{% endfor %}
+                </div>
 							{% endif %}
 							{% if post.get_field('show_publish_date') %}
 								<small>Published on {{post.date}}</small>
